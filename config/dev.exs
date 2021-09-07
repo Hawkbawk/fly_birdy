@@ -1,11 +1,11 @@
-use Mix.Config
+import Config
 
 # Configure your database
 config :fly_birdy, FlyBirdy.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DB_USERNAME", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
   database: "fly_birdy_dev",
-  hostname: "localhost",
+  hostname: System.get_env("DB_HOST", "postgres"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
